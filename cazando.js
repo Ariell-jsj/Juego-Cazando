@@ -28,14 +28,18 @@ function iniciarJuego() {
   graficarComida();
 }
 
+// FUNCIÓN GENERAL
+function graficarRectangulo(x, y, ancho, alto, color) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x, y, ancho, alto);
+}
+
 // Dibujar gato
 function graficarGato() {
-  ctx.fillStyle = "orange";
-  ctx.fillRect(gatoX, gatoY, ANCHO_GATO, ALTO_GATO);
+  graficarRectangulo(gatoX, gatoY, ANCHO_GATO, ALTO_GATO, "black");
 }
 
 // Dibujar comida
 function graficarComida() {
-  ctx.fillStyle = "green";
-  ctx.fillRect(comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA);
+  graficarRectangulo(comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA, "yellow");
 }
