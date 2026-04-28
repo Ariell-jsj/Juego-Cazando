@@ -34,7 +34,30 @@ function limpiarCanva() {
 // MOVER IZQUIERDA
 function moverIzquierda() {
   gatoX = gatoX - 10;
+  limpiarCanva();
+  graficarGato();
+  graficarComida();
+}
 
+// MOVER DERECHA
+function moverDerecha() {
+  gatoX = gatoX + 10;
+  limpiarCanva();
+  graficarGato();
+  graficarComida();
+}
+
+// MOVER ARRIBA
+function moverArriba() {
+  gatoY = gatoY - 10;
+  limpiarCanva();
+  graficarGato();
+  graficarComida();
+}
+
+// MOVER ABAJO
+function moverAbajo() {
+  gatoY = gatoY + 10;
   limpiarCanva();
   graficarGato();
   graficarComida();
