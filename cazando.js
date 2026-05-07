@@ -27,8 +27,8 @@ function iniciarJuego(){
 
     clearInterval(velocidad);
 
-    velocidad = setInterval(contarTiempo,1000);
-
+    velocidad = setInterval(restarTiempo,1000);
+    
     actualizarPantalla();
 }
 //Dibujos de Gato y Comida
@@ -64,27 +64,51 @@ function actualizarPantalla(){
 
 // Movimiento del gato
 function moverIzquierda(){
-  gatoX=gatoX-10;
-  actualizarPantalla();
-  detectarColision();
+
+    if(gatoX > 0){
+
+        gatoX = gatoX - 10;
+    }
+
+    actualizarPantalla();
+
+    detectarColision();
 }
 
 function moverDerecha(){
-  gatoX=gatoX+10;
-  actualizarPantalla();
-  detectarColision();
+
+    if(gatoX + ANCHO_GATO < canvas.width){
+
+        gatoX = gatoX + 10;
+    }
+
+    actualizarPantalla();
+
+    detectarColision();
 }
 
 function moverArriba(){
-  gatoY=gatoY-10;
-  actualizarPantalla();
-  detectarColision();
+
+    if(gatoY > 0){
+
+        gatoY = gatoY - 10;
+    }
+
+    actualizarPantalla();
+
+    detectarColision();
 }
 
 function moverAbajo(){
-  gatoY=gatoY+10;
-  actualizarPantalla();
-  detectarColision();
+
+    if(gatoY + ALTO_GATO < canvas.height){
+
+        gatoY = gatoY + 10;
+    }
+
+    actualizarPantalla();
+
+    detectarColision();
 }
 
 // DETECTAR COLISION
@@ -96,7 +120,6 @@ function detectarColision(){
     gatoY <= comidaY + ALTO_COMIDA
   ){
 
-    alert("¡El gato atrapó la comida!");
     aparecerComida();
     puntos=puntos+1;
     mostrarEnSpan("puntos",puntos);
@@ -118,13 +141,48 @@ function mostaraMensaje(texto, tiempo){
     }, tiempo);
 }
 
-function contarTiempo(){
+function restarTiempo(){
+
     tiempo--;
+
     mostrarEnSpan("tiempo", tiempo);
 
     if(tiempo == 0){
+
         alert("Se acabó el tiempo");
+
         clearInterval(velocidad);
     }
 }
 
+function reiniciarJuego(){
+
+    // POSICIÓN DEL GATO
+    gatoX = 220;
+    gatoY = 230;
+
+    // POSICIÓN DE LA COMIDA
+    comidaX = generarAleatorio(0, canvas.width - ANCHO_COMIDA);
+    comidaY = generarAleatorio(0, canvas.height - ALTO_COMIDA);
+
+    // REINICIAR PUNTOS
+    puntos = 0;
+
+    // REINICIAR TIEMPO
+    tiempo = 10;
+
+    // MOSTRAR EN PANTALLA
+    mostrarEnSpan("puntos", puntos);
+    mostrarEnSpan("tiempo", tiempo);
+
+    // LIMPIAR MENSAJE
+    document.getElementById("mensaje").textContent = "";
+
+    // REINICIAR TEMPORIZADOR
+    clearInterval(velocidad);
+
+    velocidad = setInterval(restarTiempo, 1000);
+
+    // ACTUALIZAR JUEGO
+    actualizarPantalla();
+}
