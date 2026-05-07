@@ -9,7 +9,7 @@ let comidaX = 460;
 let comidaY = 460;
 
 let puntos = 0;
-let tiempo = 10;
+let tiempo = 60;
 let velocidad; 
 
 // CONSTANTES
@@ -124,6 +124,13 @@ function detectarColision(){
     puntos=puntos+1;
     mostrarEnSpan("puntos",puntos);
     }
+
+    if(puntos == 10){
+
+    alert("¡Felicidades, ganaste!");
+
+    clearInterval(velocidad);
+}
 }
 
 function aparecerComida(){
@@ -149,7 +156,7 @@ function restarTiempo(){
 
     if(tiempo == 0){
 
-        alert("Se acabó el tiempo");
+        alert("Game Over");
 
         clearInterval(velocidad);
     }
@@ -169,7 +176,7 @@ function reiniciarJuego(){
     puntos = 0;
 
     // REINICIAR TIEMPO
-    tiempo = 10;
+    tiempo = 60;
 
     // MOSTRAR EN PANTALLA
     mostrarEnSpan("puntos", puntos);
