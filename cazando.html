@@ -1,33 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-  <title>Juego Cazando</title>
-  <link rel="stylesheet" href="cazando.css">
+    <meta charset="UTF-8">
+    <title>Juego Cazando</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="cazando.css">
 </head>
 
-<body onload="iniciarJuego();">
+<body onload="iniciarJuego()">
 
-  <h1>Juego Cazando</h1>
-  <p>Autor: Ariell_jsj</p>
+    <h1>Juego Cazando</h1>
 
-  <canvas id="areaJuego" width="500" height="500"></canvas>
+    <p>Autor: Ariell_jsj</p>
 
- <div class="controles">
-  <button onclick="moverArriba()">⬆</button>
-  <br>
-  <button onclick="moverIzquierda()">⬅</button>
-  <button onclick="moverAbajo()">⬇</button>
-  <button onclick="moverDerecha()">➡</button>
-</div>
+    <!-- MARCADOR -->
+    <h2>
+        Puntos:
+        <span id="puntos">0</span>
+    </h2>
 
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
-  </div>
+    <h2>
+        Tiempo:
+        <span id="tiempo">10</span>
+    </h2>
 
-  <p id="mensaje"></p>
+    <!-- MENSAJE -->
+    <p id="mensaje"></p>
 
-  <script src="cazando.js"></script>
+    <!-- CANVAS -->
+    <canvas id="areaJuego" width="500" height="500"></canvas>
+
+    <br><br>
+
+    <!-- CONTROLES -->
+    <div class="controles">
+
+        <button onclick="moverArriba()">⬆</button>
+
+        <br>
+
+        <button onclick="moverIzquierda()">⬅</button>
+
+        <button onclick="moverAbajo()">⬇</button>
+
+        <button onclick="moverDerecha()">➡</button>
+
+    </div>
+
+    <!-- JS -->
+    <script src="utils/utils.js"></script>
+    <script src="cazando.js"></script>
 
 </body>
 </html>
