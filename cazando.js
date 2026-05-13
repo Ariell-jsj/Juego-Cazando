@@ -125,7 +125,7 @@ function detectarColision(){
     mostrarEnSpan("puntos",puntos);
     }
 
-    if(puntos == 10){
+    if(puntos == 20){
 
     alert("¡Felicidades, ganaste!");
 
